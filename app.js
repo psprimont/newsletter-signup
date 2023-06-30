@@ -39,14 +39,13 @@ app.post("/", function (req, res) {
     }
 
     const jsonData = JSON.stringify(data);
-
-    const key = process.env.MC_API_TOKEN;
-
     const url = "https://us21.api.mailchimp.com/3.0/lists/4a1d66636a";
     const options = {
         method: "POST", 
-        auth: key
+        auth: "preston:" + process.env.MC_API_TOKEN
     };
+
+    console.log (options.auth);
 
     const request = https.request(url, options, function(response){
 
